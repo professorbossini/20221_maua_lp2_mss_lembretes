@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+app.use(express.json())
 const lembretes = {}
 contador = 0
 //GET
@@ -16,7 +16,7 @@ app.post('/lembretes', (req, res) => {
     //{texto: "Fazer café"}
     const { texto } = req.body
     lembretes[contador] = {contador, texto}
-    res.status(201).send(lembrete[contador])
+    res.status(201).send(lembretes[contador])
 })
 
 
